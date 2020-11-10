@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zyx/workspace/csv_parsing_library/main.cpp
+iostream
+-
+sstream
+-
+fstream
+-
+zconf.h
+-
+cstring
+-
+
