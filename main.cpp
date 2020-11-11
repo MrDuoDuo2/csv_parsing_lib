@@ -8,7 +8,7 @@
 using namespace std;
 
 
-void parsing(char *file_src) {
+void parsing(char *file_src,char *fmc) {
     ifstream csv_file(file_src, std::fstream::binary);
 
     int line_n = 0;
@@ -28,7 +28,7 @@ void parsing(char *file_src) {
         string sub_string;
         while (true) {
             int flag = 0;
-            char_position = line_string.find(",", i);
+            char_position = line_string.find(fmc, i);
 
             if (char_position == -1) {
                 char_position = line_string.find("\n", i);
@@ -36,6 +36,11 @@ void parsing(char *file_src) {
             }
 
             int size = char_position - i;
+
+//            printf("i:%d\n",i);
+//            printf("char_position:%d\n",char_position);
+            printf("size:%d\n",size);
+
             sub_string = line_string.substr(i, size);
 
             printf("%d.%d:%s\n", line_n, sub, sub_string.c_str());
@@ -53,7 +58,7 @@ void parsing(char *file_src) {
 
 int main() {
     char *csv_src = "/home/zyx/workspace/csv_parsing_library/test.csv";
-    parsing(csv_src);
+    parsing(csv_src,",");
     return 0;
 }
 
